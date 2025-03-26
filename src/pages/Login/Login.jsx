@@ -7,6 +7,7 @@ const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const URL = import.meta.env.VITE_BACKEND_URL; // Using Vite environment variable
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     setError("");
     try {
-      const res = await axios.post("http://localhost:5000/auth/login", formData);
+      const res = await axios.post(`${URL}/auth/login`, formData);
       
       if (res.data.token) {
         localStorage.setItem("token", res.data.token);

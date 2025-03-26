@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import TaskCard from "../../components/TaskCard/TaskCard.jsx";
@@ -13,7 +13,9 @@ const Home = () => {
     description: "",
     status: "To Do",
   });
+
   const navigate = useNavigate();
+  const URL = import.meta.env.VITE_BACKEND_URL; // Using Vite environment variable
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -27,7 +29,7 @@ const Home = () => {
   const fetchTasks = async () => {
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:5000/tasks", {
+      const res = await axios.get(`${URL}/tasks`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTasks(res.data);
@@ -39,7 +41,7 @@ const Home = () => {
   const deleteTask = async (id) => {
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`http://localhost:5000/tasks/delete/${id}`, {
+      await axios.delete(`${URL}/tasks/delete/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       fetchTasks();
@@ -54,7 +56,7 @@ const Home = () => {
 
     try {
       await axios.put(
-        `http://localhost:5000/tasks/update/${selectedTask._id}`,
+        `${URL}/tasks/update/${selectedTask._id}`,
         {
           title: selectedTask.title,
           description: selectedTask.description,
@@ -86,7 +88,7 @@ const Home = () => {
 
     try {
       await axios.post(
-        "http://localhost:5000/tasks/add",
+        `${URL}/tasks/add`,
         {
           title: newTask.title,
           description: newTask.description,
