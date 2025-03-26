@@ -1,0 +1,128 @@
+/* Navbar container */
+.navbar {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+/* Task Manager Logo */
+.brand {
+  font-size: 1.4rem; /* Default size */
+  font-weight: 600; 
+  color: white;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 14px;
+}
+
+/* Common link styles */
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 7px 14px;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  background-color: #0056b3;
+}
+
+/* Logout Button */
+.logout-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 7px 14px;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+
+/* Tablets (iPads) */
+@media (max-width: 1024px) {
+  .navbar {
+    padding: 10px 14px;
+  }
+
+  .brand {
+    font-size: 1.3rem;
+  }
+
+  .nav-links {
+    gap: 12px;
+  }
+
+  .nav-link,
+  .logout-btn {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-link,
+  .logout-btn {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+  }
+}
+
+/* Small Mobile devices */
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+  }
+
+  .brand {
+    font-size: 1.1rem;
+  }
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-link,
+  .logout-btn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+}
